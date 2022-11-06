@@ -9,7 +9,7 @@ $factory->define(Post::class, function (Faker $faker) {
     return [
         'title'        => $faker->sentence,
         'body'         => $faker->paragraph(30),
-        'user_id'      => rand(1, 10),
+        'user_id'      => rand(1, 5),
         'category_id'  => rand(1, 10),
         'is_published' => rand(0, 1)
     ];

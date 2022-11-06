@@ -5,6 +5,7 @@ use App\Category;
 use App\Comment;
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DataSeeder extends Seeder
 {
@@ -21,14 +22,14 @@ class DataSeeder extends Seeder
         Comment::truncate();
 
         factory(Category::class, 10)->create();
-        factory(User::class, 10)->create();
+        factory(User::class, 5)->create();
         factory(Post::class, 25)->create();
         factory(Comment::class, 40)->create();
 
         $user = User::create([
             'name'      => 'Admin',
-            'email'     => 'admin@laravelproject.com',
-            'password'  => bcrypt('admin')
+            'email'     => 'admin@admin.com',
+            'password'  => Hash::make('admin')
         ]);
 
         $user->is_admin = true;
